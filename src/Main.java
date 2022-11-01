@@ -1,3 +1,5 @@
+
+
 public class Main {
     public static void main(String[] args) {
         int[] array = {3, 2 ,0, 8, 3, 4};
@@ -18,6 +20,23 @@ public class Main {
                     array[j+1] = temp;
                 }
             }
+        }
+    }
+    public void shellSorting(int[] array) {
+        boolean isSorted;
+        int temp;
+        int nMinusOne = array.length - 1;
+        for(int i = 0; i < nMinusOne; i++) {
+            isSorted = true;
+            for (int j = 0; j < nMinusOne - i; j++) {
+                if (array[j] > array[j + 1]) {
+                    temp = array[i];
+                    array[i] = array[i+1];
+                    isSorted = false;
+                }
+            }
+            if (isSorted)
+                return;
         }
     }
     public static void printArray(int[] array) {
