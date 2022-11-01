@@ -1,11 +1,18 @@
-
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         int[] array = {3, 2 ,0, 8, 3, 4};
         System.out.println("This is array before sorting");
         printArray(array);
-        bubbleSorting(array);
+        int choice;
+        Scanner in = new Scanner(System.in);
+        System.out.println("1 - bubble sort \n" + "2 - shell sort \n");
+        choice = in.nextInt();
+        switch (choice) {
+            case 1 -> bubbleSorting(array);
+            case 2 -> shellSorting(array);
+        }
         System.out.println("This is array after sorting");
         printArray(array);
     }
@@ -22,7 +29,7 @@ public class Main {
             }
         }
     }
-    public void shellSorting(int[] array) {
+    public static void shellSorting(int[] array) {
         boolean isSorted;
         int temp;
         int nMinusOne = array.length - 1;
@@ -30,8 +37,9 @@ public class Main {
             isSorted = true;
             for (int j = 0; j < nMinusOne - i; j++) {
                 if (array[j] > array[j + 1]) {
-                    temp = array[i];
-                    array[i] = array[i+1];
+                    temp = array[j];
+                    array[j] = array[j+1];
+                    array[j+1] = temp;
                     isSorted = false;
                 }
             }
