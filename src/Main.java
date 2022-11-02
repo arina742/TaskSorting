@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         int[] array = {3, 2 ,0, 8, 3, 4};
@@ -60,9 +59,7 @@ public class Main {
         }
 
 
-            }
-        }
-                }
+
     public static void shellSorting(int[] array) {
         boolean isSorted;
         int temp;
@@ -72,13 +69,29 @@ public class Main {
             for (int j = 0; j < nMinusOne - i; j++) {
                 if (array[j] > array[j + 1]) {
                     temp = array[j];
-                    array[j] = array[j+1];
+                    array[j] = array[j+1] ;
                     array[j+1] = temp;
                     isSorted = false;
                 }
             }
             if (isSorted)
                 return;
+        }
+    }
+
+    public  static void insertionSorting(int[] array){
+        for (int left = 0; left < array.length; left++){
+            int value = array[left];
+            int i = left - 1;
+            for(; i >=0; i--)
+            {
+                if(value < array[i]){
+                    array[i+1] = array[i];
+                }
+                else break;
+            }
+
+            array[i+1] = value;
         }
     }
     public static void printArray(int[] array) {
